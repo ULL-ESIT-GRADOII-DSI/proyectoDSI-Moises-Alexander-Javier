@@ -16,7 +16,7 @@ var session      = require('express-session');
 
 mongoose.connect('mongodb://localhost/notepro');
 
-// require('./config/passport')(passport); // pass passport for configuration
+require('./config/passport')(passport); // pass passport for configuration
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
