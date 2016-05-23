@@ -60,7 +60,7 @@ module.exports = function(app, passport) {
 		app.get('/auth/google/callback',
 			passport.authenticate('google', {
 				successRedirect : '/profile',
-				failureRedirect : '/'
+				failureRedirect : '/fail'
 			}));
 
 // =============================================================================
@@ -87,7 +87,7 @@ module.exports = function(app, passport) {
 		app.get('/connect/google/callback',
 			passport.authorize('google', {
 				successRedirect : '/profile',
-				failureRedirect : '/'
+				failureRedirect : '/fail'
 			}));
 
 // =============================================================================
