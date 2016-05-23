@@ -11,40 +11,25 @@
 <body>
 <div class="container">
 
-	<div class="page-header text-center">
-		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
-		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+	<div class="text-center" style="margin-top:-70px; padding:0;">
+		<h1>Hola, <%= user.local.email %>!</h1>
+		<!--<a href="/logout" class="btn btn-default btn-sm">Logout</a>-->
 	</div>
 
-	<div class="row">
 
-		<!-- LOCAL INFORMATION -->
-		<div class="col-sm-6">
-			<div class="well">
-				<h3><span class="fa fa-user"></span> Local</h3>
+
+
+	<div class="row" style="margin-top:100px;">
+		<div class="col-xs-12 col-sm-4">
+			<div class="">
+				<h3><span class=""></span> Datos Personales </h3>
 
 				<% if (user.local.email) { %>
 					<p>
 						<strong>id</strong>: <%= user._id %><br>
 						<strong>email</strong>: <%= user.local.email %><br>
-						<strong>password</strong>: <%= user.local.password %>
 					</p>
-					
-					<a href="/unlink/local" class="btn btn-default">Unlink</a>
-				<% } else { %>
-					<a href="/connect/local" class="btn btn-default">Connect Local</a>
 				<% } %>
-
-			</div>
-		</div>
-
-	<div class="row">
-
-		<!-- GOOGLE INFORMATION -->
-		<div class="col-sm-6">
-			<div class="well">
-				<h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
-
 				<% if (user.google.token) { %>
 					<p>
 						<strong>id</strong>: <%= user.google.id %><br>
@@ -52,15 +37,52 @@
 						<strong>email</strong>: <%= user.google.email %><br>
 						<strong>name</strong>: <%= user.google.name %>
 					</p>
-					<a href="/unlink/google" class="btn btn-danger">Unlink</a>
-				<% } else { %>
-					<a href="/connect/google" class="btn btn-danger">Connect Google</a>
 				<% } %>
-
 			</div>
+		</div>
+		
+		<div class="col-xs-12 col-sm-8">
+			<ul class="nav nav-tabs">
+			  <li class="active"><a href="#anadir" data-toggle="tab">Añadir</a></li>
+			  <li><a href="#pendientes" data-toggle="tab">Pendientes</a></li>
+			  <li><a href="#terminadas" data-toggle="tab">Terminadas</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div class="tab-pane fade in active" id="anadir">
+					<form action="/anadir">
+						<label for="nombre">Tarea</label>
+						<input id="nombre" type="text" name="nombre" placeholder="Nombre y Apellido"/>
+						<br>
+						<label for="informacion">Informacion:</label>
+						<textarea id="informacion" name="informacion" placeholder="Escribe aqui la tarea a realizar"></textarea>
+						<br>
+						<label for="fecha">Fecha:</label>
+						<input id="fecha" type="date" name="fecha" placeholder="Fecha"/>
+						<br>
+						<input id="submit" type="submit" name="submit" value="Guardar" />
+					</form>
+					
+				</div>
+				<div class="tab-pane fade" id="pendientes">
+					<h2>que tal</h2>
+					
+				</div>
+				<div class="tab-pane fade" id="terminadas">
+					<h2> y tu?</h2>
+					
+				</div>
+			</div>	
 		</div>
 	</div>
 
+	<div class="row" style="text-align:center; margin-top:20%; margin-bottom:20px;">
+		<button><a href="/logout" class="btn btn-default">Cerrar Sesion</a></button>
+	</div>
+	
+	
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 </div>
 </body>
 </html>

@@ -1,5 +1,12 @@
 module.exports = function(app, passport) {
 
+
+/* Traemos los esquemas para trabajar con ellos */
+const User       = require('../app/models/user');
+const Datos = require('../app/models/datosuser');
+
+
+
 // normal routes ===============================================================
 
 	// show the home page (will also have our login links)
@@ -122,6 +129,53 @@ module.exports = function(app, passport) {
 		});
 	});
 
+
+
+	/*  BASE DE DATOS  */
+	app.get('/anadir', function(req, res) {
+		console.log("entra");
+		var user = req.user;
+		console.log("Console: " + user.local.email);
+		User.find({nombre: user.local.email},(err,file)=>{
+		    
+		    var datos = new Datos({
+			    creator: user.local.email, 
+			    tarea: req.query.nombre, 
+			    informacion: req.query.informacion,
+			    fecha : req.query.fecha,
+			    estado : "pendiente"
+		    });
+		    
+		    datos.save(function(err){
+		      if(err) return console.log(err);
+		    });
+		    
+		    res.redirect('/profile');
+		 })
+	});
+	
+	
+	/*app.get('/terminadas', function(req, res) {
+		console.log("entra");
+		var user = req.user;
+		console.log("Console: " + user.local.email);
+		User.find({nombre: user.local.email},(err,file)=>{
+		    
+		    var datos = new Datos({
+			    creator: user.local.email, 
+			    tarea: req.body.nombre, 
+			    informacion: req.body.informacion,
+			    fecha : req.body.fecha,
+			    estado : "pendiente"
+		    });
+		    
+		    datos.save(function(err){
+		      if(err) return console.log(err);
+		    });
+		    
+		    res.redirect('/profile');
+		 })
+	});*/
 
 };
 
