@@ -208,7 +208,7 @@ nav .input-field label.active {
 #tarjetas{
     margin-top: 3%;
 }
-
+/*
 #boton1{
   margin-left: 300px;
   margin-top: 200px;
@@ -216,9 +216,21 @@ nav .input-field label.active {
 
 #boton2{
   margin-left: 300px;
-}
+}*/
 
 
 #principio{
-  height: 400px;
+  margin: 0px;
+  padding: 0px;
+  img{
+    width: 90%;
+    height: 90%;
+    
+  }
+}
+
+
+footer{
+  margin: 0px;
+  padding: 0px;
 }
