@@ -5,8 +5,6 @@ module.exports = function(app, passport) {
 const User       = require('../app/models/user');
 const Datos = require('../app/models/datosuser');
 
-
-
 // normal routes ===============================================================
 
 	// show the home page (will also have our login links)
@@ -131,7 +129,9 @@ const Datos = require('../app/models/datosuser');
 
 
 
-	/*  BASE DE DATOS  */
+// =============================================================================
+// TRABAJANDO CON LA BBDD ======================================================
+// =============================================================================
 	app.get('/anadir', function(req, res) {
 		console.log("entra");
 		var user = req.user;
@@ -149,33 +149,21 @@ const Datos = require('../app/models/datosuser');
 		    datos.save(function(err){
 		      if(err) return console.log(err);
 		    });
-		    
+
 		    res.redirect('/profile');
 		 })
 	});
 	
-	
-	/*app.get('/terminadas', function(req, res) {
-		console.log("entra");
-		var user = req.user;
-		console.log("Console: " + user.local.email);
-		User.find({nombre: user.local.email},(err,file)=>{
-		    
-		    var datos = new Datos({
-			    creator: user.local.email, 
-			    tarea: req.body.nombre, 
-			    informacion: req.body.informacion,
-			    fecha : req.body.fecha,
-			    estado : "pendiente"
-		    });
-		    
-		    datos.save(function(err){
-		      if(err) return console.log(err);
-		    });
-		    
-		    res.redirect('/profile');
-		 })
-	});*/
+	app.get('/pendi', function(req, res) {
+		 
+		Datos.find(function(err, datos) {
+		    if(err) return err;
+		
+		    res.json(datos);
+		});
+		
+	});
+
 
 };
 
