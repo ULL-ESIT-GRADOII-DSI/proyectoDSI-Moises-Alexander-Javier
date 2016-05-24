@@ -9,7 +9,7 @@ const Datos = require('../app/models/datosuser');
 
 	// show the home page (will also have our login links)
 	app.get('/', function(req, res) {
-		res.render('indice.ejs');
+		res.render('index.ejs');
 	});
 	
 	app.get('/prueba', function(req, res) {
