@@ -1,10 +1,10 @@
 (function() {
     "use strict";
     $(document).ready(function(){
-        alert("tu puta madre");
+        alert("hola guapo");
         
-        //$(".button-collapse").sideNav();//barra pequeña
-        //$('input#input_text, textarea#textarea1').characterCounter(); //formularios
+        $(".button-collapse").sideNav();//barra pequeña
+        $('input#input_text, textarea#textarea1').characterCounter(); //formularios
         
         $("#button").click(function()
         {
