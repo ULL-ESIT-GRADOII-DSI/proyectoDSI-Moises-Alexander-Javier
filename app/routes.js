@@ -11,6 +11,10 @@ const Datos = require('../app/models/datosuser');
 	app.get('/', function(req, res) {
 		res.render('indice.ejs');
 	});
+	
+	app.get('/prueba', function(req, res) {
+		res.render('prueba_login.ejs');
+	});
 
 	app.get('/indice', function(req, res) {
 		res.render('indice.ejs');
