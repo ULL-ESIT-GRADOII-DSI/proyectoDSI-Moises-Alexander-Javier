@@ -3,8 +3,9 @@
     $(document).ready(function(){
         
         
-        $(".button-collapse").sideNav();//barra pequeña
+       /* $(".button-collapse").sideNav();//barra pequeña
         $('input#input_text, textarea#textarea1').characterCounter(); //formularios
+        */
         
         $("#button").click(function()
         {
@@ -22,7 +23,7 @@
                     if(data.length == 0)
                     {
                         var alerta = '<div class="mensaje"> No tienes tareas pendientes </div>';
-                        $('.tareas').append(alerta);
+                        $('.tareas-pendientes').append(alerta);
                     }
                     else
                     {
@@ -30,13 +31,20 @@
                         {
                             if(data[i].estado == "pendiente")
                             {
-                                var div = '<div>'+ data[i].tarea + '</div>';
-                                div = div + '<div>'+ data[i].informacion + '</div>';
-                                div = div + '<div>'+ data[i].fecha + '</div>';
+                                var h3 = '<h3 class="h3">'+ data[i].tarea + '</h3>';
+                                
+                                var div = '<div class="div">'          +
+                                          '<p>' + 'Fecha de entrega: ' + data[i].fecha      +  '</p>' + 
+                                          '<p>' +  data[i].informacion                      +  '</p>' +
+                                          '</div>';
+                                
+
+                                $('.tareas-pendientes').append(h3);
+                                $('.tareas-pendientes').append(div);
                             }
                         } 
 
-                        $('.tareas').append(div);
+                       /* $('.tareas-pendientes').append(div);*/
                         
                     }
                 },
