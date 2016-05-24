@@ -2,7 +2,7 @@
     "use strict";
     $(document).ready(function(){
 
-       
+       $(".button-collapse").sideNav(); 
         $("#button").click(function(){
        
             console.log("onclic");
