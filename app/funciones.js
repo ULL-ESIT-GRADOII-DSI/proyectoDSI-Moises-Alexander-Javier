@@ -2,20 +2,64 @@
     "use strict";
     $(document).ready(function(){
 
-       $(".button-collapse").sideNav(); 
-        $("#button").click(function(){
+
+        $("#button").click(function()
+        {
        
             console.log("onclic");
-            $.get('/pendi', function(err,controller){
-               console.log("datos recibidos");
-               console.log(controller);
-                /*for (var i=0; i<controller.length; i++){
-                    $('p#p'+(i)).html(controller[i].text);
-                    $('p#name'+(i)).text(controller[i].creador.local.email);
-                }*/
-                
+            $.ajax(
+            {     
+                type: 'GET',
+                url: '/pendi',
+                success: function (data) {
+                    console.log(data);
+                    $("#button").css("display","none");
+                    
+                    
+                    if(data.length == 0)
+                    {
+                        var alerta = '<div class="mensaje"> No tienes tareas pendientes </div>';
+                        $('.tareas').append(alerta);
+                    }
+                    else
+                    {
+                        for(var i=0; i<data.length; i++) 
+                        {
+                            if(data[i].estado == "pendiente")
+                            {
+                                var div = '<div>'+ data[i].tarea + '</div>';
+                                div = div + '<div>'+ data[i].informacion + '</div>';
+                                div = div + '<div>'+ data[i].fecha + '</div>';
+                            }
+                        } 
+
+                        $('.tareas').append(div);
+                        
+                    }
+                },
+                error: function(){
+                      alert("La pagina no esta disponible");
+                }
             });
         });
 
     });
+    
+    
+    
+    function validar()
+    {
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 })();

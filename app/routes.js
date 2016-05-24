@@ -134,17 +134,17 @@ const Datos = require('../app/models/datosuser');
 // =============================================================================
 	app.get('/anadir', function(req, res) {
 		console.log("entra");
-		var user = req.user;
-		console.log("Console: " + user.local.email);
-		User.find({nombre: user.local.email},(err,file)=>{
+
+		User.find({nombre: req.user.local.email},(err,file)=>{
 		    
 		    var datos = new Datos({
-			    creator: user.local.email, 
+			    creador: req.user._id, 
 			    tarea: req.query.nombre, 
 			    informacion: req.query.informacion,
 			    fecha : req.query.fecha,
 			    estado : "pendiente"
 		    });
+		    console.log("Creador: " + datos.creador);
 		    
 		    datos.save(function(err){
 		      if(err) return console.log(err);
@@ -155,12 +155,17 @@ const Datos = require('../app/models/datosuser');
 	});
 	
 	app.get('/pendi', function(req, res) {
-		 
-		Datos.find(function(err, datos) {
-		    if(err) return err;
+		var user = req.user;
+		console.log("Console 2: " + user.local.email);
+		console.log(req.user._id);
 		
-		    res.json(datos);
-		});
+		Datos.find({creador: req.user._id, estado: 'pendiente'},function(err, datos) {
+	        if(err) {
+	            res.send(err);
+	        }
+
+	        res.json(datos);
+    	});
 		
 	});
 
