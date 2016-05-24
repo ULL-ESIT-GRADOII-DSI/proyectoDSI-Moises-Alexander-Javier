@@ -13,7 +13,7 @@ const Datos = require('../app/models/datosuser');
 	});
 	
 	app.get('/prueba', function(req, res) {
-		res.render('prueba_login.ejs');
+		res.render('signup_viejo.ejs', { message: req.flash('loginMessage') });
 	});
 
 	app.get('/indice', function(req, res) {
