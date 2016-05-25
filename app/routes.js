@@ -138,7 +138,7 @@ const Datos = require('../app/models/datosuser');
 // =============================================================================
 	app.get('/anadir', function(req, res) {
 		console.log("entra");
-
+		
 		User.find({nombre: req.user.local.email},(err,file)=>{
 		    
 		    var datos = new Datos({
@@ -168,7 +168,6 @@ const Datos = require('../app/models/datosuser');
 	        if(err) {
 	            res.send(err);
 	        }
-
 	        res.json(datos);
     	});
 		
@@ -190,9 +189,11 @@ const Datos = require('../app/models/datosuser');
 	
 	app.get('/update', function(req, res) {
 		var user = req.user;
+		console.log("nametarea: " +req.query.nametarea)
 
-		Datos.update({creador: req.user._id, estado: 'pendiente'}, {$set: {estado: 'terminada'/*req.query.element*/}},function(err, datos) {
+		Datos.update({tarea: req.query.nametarea}, {$set: {estado: 'terminada'}},function(err, datos) {
 		    if(err) throw err;
+		    
 		    res.redirect('/profile');
 		});
 		
@@ -202,9 +203,9 @@ const Datos = require('../app/models/datosuser');
 		Datos.findOneAndRemove({})
 	    .exec(function(err, curso, count)
 		{
-		    res.send({res:"Success"});
+		    res.redirect('/profile');
 		});
-		
+
 	});
 
 

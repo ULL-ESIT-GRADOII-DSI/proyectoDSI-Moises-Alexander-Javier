@@ -13,7 +13,6 @@
             selectYears: 15 // Creates a dropdown of 15 years to control year
         });
         
-        
         //================================ MOSTRAR TAREAS PENDIENTES =============================================//
         console.log("onclic");
         $.ajax(
@@ -40,13 +39,13 @@
                         {
                             
                             div = div +
-                                    '<li class="col s11" onclick="f();">'+
+                                    '<li class="col s8" onclick="f();">'+
                                         '<div class="collapsible-header"><i class="material-icons">library_books</i>'+data[i].tarea+'</div>'+
                                         '<div class="collapsible-body"><p> Fecha de entrega: ' + data[i].fecha  +  '</p></div>'+
                                         '<div class="collapsible-body"><p> Descripcion: ' + data[i].informacion  + '</p></div>'+
                                     '</li>'+
-                                    '<div class="col s1">'+
-                                        '<a title="Mover a terminadas" class="btn-floating btn-small waves-effect waves-light black" onclick="actualizar();">'+
+                                    '<div class="col s4">'+
+                                        '<a title="Mover a terminadas" class="btn-floating btn-small waves-effect waves-light black" >'+
                                         '<i class="material-icons">add</i></a>'+
                                     '</div>';
                         }
@@ -120,8 +119,6 @@
     });
     
     
-
-   
 
     
 

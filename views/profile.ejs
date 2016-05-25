@@ -16,136 +16,149 @@
 	
 	<script src="./funciones.js"></script> 
 	<script>
-		  function f(){
+		function f(){
 		    $('.collapsible').collapsible({
 		      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
 		    });
-		  };
-		  
-		  function actualizar(){
-		  	$.get("/update", function( data ) {
-		  		location.reload(true);
-				alert("Actualizando")
-			});
-		  };
-		  
-		  function eliminar(){
-		  	$.get("/eliminar", function(  ) {
-		  		location.reload(true);
-			});
-		  };
+		};
 	</script>
 	
- 	
-		
 </head>
 <body>
 	
-		<div class="row">
-			<div class="cols m12 s12 center-align">
-				<h2>Hola, <%= user.local.email %>!</h2>
-			</div>
+	<nav>
+		<div class="nav-wrapper #b3e5fc light-blue lighten-4">
+			<img class="responsive-img brand-logo center" src="images/Proyecto2.png">
+			<a href="#!" class="brand-logo">
+			  	<% if (user.local.email) { %>
+					<%= user.local.name %>
+				<% } %>
+				<% if (user.google.token) { %>
+					<%= user.google.name %>
+				<% } %>
+			</a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="/logout"><i class="material-icons right">system_update_alt</i>Cerrar sesion</a></li>
+			</ul>
 		</div>
+	</nav>
 
 	
-	
-		<div class="row" style="margin-top:100px;">
-			<div class="col s12 col m4">
-				<div class="">
-					<h3><span class=""></span> Datos Personales </h3>
-	
-					<% if (user.local.email) { %>
-						<p>
-							<strong>id</strong>: <%= user._id %><br>
-							<strong>email</strong>: <%= user.local.email %><br>
-						</p>
-					<% } %>
-					<% if (user.google.token) { %>
-						<p>
-							<strong>id</strong>: <%= user.google.id %><br>
-							<strong>token</strong>: <%= user.google.token %><br>
-							<strong>email</strong>: <%= user.google.email %><br>
-							<strong>name</strong>: <%= user.google.name %>
-						</p>
-					<% } %>
-				</div>
-			</div>
-			
-			<div class="col s12 m8">
-				<div class="row">
-					<div class="col s12 m8">
-					  <ul class="tabs">
-					    <li class="tab col s4"><a href="#anadir" class="active">Añadir</a></li>
-					    <li class="tab col s4"><a href="#pendientes">Pendientes</a></li>
-					    <li class="tab col s4"><a href="#terminadas">Terminadas</a></li>
-					  </ul>
-					</div>
-					<div id="anadir" class="col s12">
+	<div class="row" style="margin-top:100px;">
+		<div class="col s12 col m4">
+			<div class="">
+				<h3><span class=""></span> Datos Personales </h3>
+
+				<% if (user.local.email) { %>
+					<p>
+						<strong>Nombre de usuario </strong>: <%= user.local.username %><br>
+						<strong>Nombre </strong>: <%= user.local.name %><br>
+						<strong>Edad </strong>: <%= user.local.edad %><br>
+						<strong>Email </strong>: <%= user.local.email %><br>
 						
-						<div class="row">
-							<h4 style="text-align:center">
-								Añade tus tareas
-							</h4>
-						    <form class="col s12" action="/anadir">
-						    	<div class="row">
-							        <div class="input-field col s6">
-							        	<i class="material-icons prefix icon-blue">note_add</i>
-							          	<input placeholder="" id="nombre" name="nombre" type="text" class="nombre validate">
-							          	<label for="nombre">Tarea</label>
-							        </div>
-							        <div class="input-field col s6">
-							        	<i class="material-icons prefix icon-blue">today</i>
-							          	<input id="fecha" type="date" name="fecha" class="datepicker">
-							        </div>
-								</div>
-						      	<div class="row">
-							        <div class="input-field col s12">
-							        	<i class="material-icons prefix icon-blue">mode_edit</i>
-							          	<textarea id="informacion" name="informacion" class="materialize-textarea" placeholder="Escribe aqui la tarea a realizar"></textarea>
-							          	<label for="informacion">Textarea</label>
-							        </div>
-						      	</div>
-						      	<div class="row center-align">
-							      	<button class="btn waves-effect waves-light center-align" type="submit" name="submit">Guardar
-										<i class="material-icons right">send</i>
-									</button>
-						      	</div>
-						    </form>
-						  </div>
-					</div>
-					
-					<div id="pendientes" class="col s12">
-						<% if (user.local.email) { %>
-						<h4 style="text-align:center">
-							Tareas pendientes
-						</h4>
-						<% } %>
-						
-						<div class="tareas-pendientes">
-							
-						</div>
-					</div>
-					
-					<div id="terminadas" class="col s12">
-						<% if (user.local.email) { %>
-						<h4 style="text-align:center">
-							Tareas terminadas
-						</h4>
-						<% } %>
-						<div class="tareas-terminadas">
-							
-						</div>	
-					</div>
-				</div>
+					</p>
+				<% } %>
+				<% if (user.google.token) { %>
+					<p>
+						<strong>name</strong>: <%= user.google.name %><br>
+						<strong>email</strong>: <%= user.google.email %><br>
+
+					</p>
+				<% } %>
 			</div>
-	
 		</div>
 		
-		<div class="row" style="text-align:center; margin-top:20%; margin-bottom:20px;">
-			<a href="/logout" class="waves-effect waves-light btn">Cerrar Sesion</a>
+		<div class="col s12 m8">
+			<div class="row">
+				<div class="col s12 m8">
+				  <ul class="tabs">
+				    <li class="tab col s4"><a href="#anadir" class="active">Añadir</a></li>
+				    <li class="tab col s4"><a href="#pendientes">Pendientes</a></li>
+				    <li class="tab col s4"><a href="#terminadas">Terminadas</a></li>
+				  </ul>
+				</div>
+				<div id="anadir" class="col s12">
+					
+					<div class="row">
+						<h4 style="text-align:center">
+							Añade tus tareas
+						</h4>
+					    <form class="col s12" action="/anadir">
+					    	<div class="row">
+						        <div class="input-field col s6">
+						        	<i class="material-icons prefix icon-blue">note_add</i>
+						          	<input placeholder="" id="nombre" name="nombre" type="text" class="nombre validate">
+						          	<label for="nombre">Tarea</label>
+						        </div>
+						        <div class="input-field col s6">
+						        	<i class="material-icons prefix icon-blue">today</i>
+						          	<input id="fecha" type="date" name="fecha" class="datepicker">
+						        </div>
+							</div>
+					      	<div class="row">
+						        <div class="input-field col s12">
+						        	<i class="material-icons prefix icon-blue">mode_edit</i>
+						          	<textarea id="informacion" name="informacion" class="materialize-textarea" placeholder="Escribe aqui la tarea a realizar"></textarea>
+						          	<label for="informacion">Textarea</label>
+						        </div>
+					      	</div>
+					      	<div class="row center-align">
+						      	<button class="btn waves-effect waves-light center-align" type="submit" name="submit">Guardar
+									<i class="material-icons right">send</i>
+								</button>
+					      	</div>
+					    </form>
+					  </div>
+				</div>
+				
+				<div id="pendientes" class="col s12">
+					<h4 style="text-align:center">
+						Tareas pendientes
+					</h4>
+					<form class="tareas-pendientes col s12" action="/update">
+						<div class="row">
+							<div class="input-field col s6">
+								<i class="material-icons prefix icon-blue">note_add</i>
+								<input placeholder="" id="nametarea" name="nametarea" type="text" class="nametarea validate">
+								<label for="nametarea">Tarea</label>	
+							</div>
+							<div class="input-field col s6">
+								<button class="btn waves-effect waves-light center-align" type="submit" id="button" name="button">Guardar
+									<i class="material-icons right">send</i>
+								</button>
+							</div>
+						</div>
+						
+						<!-- Aqui se situaria el contenido dinamico -->
+					</form>
+				</div>
+				
+				<div id="terminadas" class="col s12">
+					<h4 style="text-align:center">
+						Tareas terminadas
+					</h4>
+					<form class="tareas-terminadas col s12" action="/eliminar">
+						<div class="row">
+							<div class="input-field col s6">
+								<i class="material-icons prefix icon-blue">note_add</i>
+								<input placeholder="" id="nametarea1" name="nametarea1" type="text" class="nametarea1 validate">
+								<label for="nametarea1">Tarea</label>	
+							</div>
+							<div class="input-field col s6">
+								<button class="btn waves-effect waves-light center-align" type="submit" id="button1" name="button1">Guardar
+									<i class="material-icons right">send</i>
+								</button>
+							</div>
+						</div>
+						
+						<!-- Aqui se situaria el contenido dinamico -->
+					</form>	
+				</div>
+				
+			</div>
 		</div>
 
-		    		 
+	</div>
 
 </body>
 </html>

@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
+
 var Schema = mongoose.Schema;
 var User = mongoose.model('User');
+
 
 var DatosSchema = mongoose.Schema({
     creador: { type: Schema.ObjectId, ref: "User" },                            /* Creador de la tarea */

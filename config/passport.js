@@ -38,14 +38,14 @@ module.exports = function(passport) {
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     },
     function(req, email, password, done) {
-
         // asynchronous
         process.nextTick(function() {
             User.findOne({ 'local.email' :  email }, function(err, user) {
+                
                 // if there are any errors, return the error
                 if (err)
                     return done(err);
-
+                
                 // if no user is found, return the message
                 if (!user)
                     return done(null, false, req.flash('loginMessage', 'No user found.'));
@@ -91,6 +91,8 @@ module.exports = function(passport) {
                 if(req.user) {
                     var user            = req.user;
                     user.local.email    = email;
+                    user.local.username = req.body.username1;
+                    user.local.name     = req.body.nombre1;
                     user.local.password = user.generateHash(password);
                     user.save(function(err) {
                         if (err)
@@ -105,7 +107,10 @@ module.exports = function(passport) {
 
                     newUser.local.email    = email;
                     newUser.local.password = newUser.generateHash(password);
-
+                    newUser.local.username = req.body.username1;
+                    newUser.local.name     = req.body.nombre1;
+                    newUser.local.edad     = req.body.edad;
+                    
                     newUser.save(function(err) {
                         if (err)
                             throw err;
