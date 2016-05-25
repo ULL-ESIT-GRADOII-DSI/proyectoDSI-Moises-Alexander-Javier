@@ -2,42 +2,55 @@
 <html>
 <head>
 	<title>Node Authentication</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+    <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="assets/materialize/css/index/index.css">
 	<link type="text/css" rel="stylesheet" href="assets/materialize/css/profile.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	
-	<style>
-		body 		{ padding-top:80px; word-wrap:break-word; }
-	</style>
-		
-			
 	<script src="http://code.jquery.com/jquery.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-	<script src="./funciones.js"></script>
-	<script src="./jquery.collapse.js"></script>
+	<script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" scr="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	
+	<script src="./funciones.js"></script> 
 	<script>
-        new jQueryCollapse($(".tareas-pendientes"), {
-          open: function() {
-            this.slideDown(150);
-          },
-          close: function() {
-            this.slideUp(150);
-          }
-        });
-    </script> 	
+		  function f(){
+		    $('.collapsible').collapsible({
+		      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+		    });
+		  };
+		  
+		  function actualizar(){
+		  	$.get("/update", function( data ) {
+		  		location.reload(true);
+				alert("Actualizando")
+			});
+		  };
+		  
+		  function eliminar(){
+		  	$.get("/eliminar", function(  ) {
+		  		location.reload(true);
+			});
+		  };
+	</script>
+	
+ 	
 		
 </head>
 <body>
-	<div class="container">
 	
-		<div class="text-center" style="margin-top:-70px; padding:0;">
-			<h1>Hola, <%= user.local.email %>!</h1>
+		<div class="row">
+			<div class="cols m12 s12 center-align">
+				<h2>Hola, <%= user.local.email %>!</h2>
+			</div>
 		</div>
+
 	
 	
 		<div class="row" style="margin-top:100px;">
-			<div class="col-xs-12 col-sm-4">
+			<div class="col s12 col m4">
 				<div class="">
 					<h3><span class=""></span> Datos Personales </h3>
 	
@@ -58,56 +71,81 @@
 				</div>
 			</div>
 			
-			<div class="col-xs-12 col-sm-8">
-				<ul class="nav nav-tabs">
-				  <li class="active"><a href="#anadir" data-toggle="tab">Añadir</a></li>
-				  <li><a href="#pendientes" data-toggle="tab">Pendientes</a></li>
-				  <li><a href="#terminadas" data-toggle="tab">Terminadas</a></li>
-				</ul>
-	
-				<div class="tab-content">
-					<div class="tab-pane fade in active" id="anadir">
-						<form action="/anadir">
-							<label for="nombre">Tarea</label>
-							<input id="nombre" type="text" name="nombre" placeholder="Nombre y Apellido"/>
-							<br>
-							<label for="informacion">Informacion:</label>
-							<textarea id="informacion" name="informacion" placeholder="Escribe aqui la tarea a realizar"></textarea>
-							<br>
-							<label for="fecha">Fecha:</label>
-							<input id="fecha" type="date" name="fecha" placeholder="Fecha"/>
-							<br>
-							<input id="submit" type="submit" name="submit" value="Guardar" />
-						</form>
-						
+			<div class="col s12 m8">
+				<div class="row">
+					<div class="col s12 m8">
+					  <ul class="tabs">
+					    <li class="tab col s4"><a href="#anadir" class="active">Añadir</a></li>
+					    <li class="tab col s4"><a href="#pendientes">Pendientes</a></li>
+					    <li class="tab col s4"><a href="#terminadas">Terminadas</a></li>
+					  </ul>
 					</div>
-					<div class="tab-pane fade" id="pendientes">
-						<button id="button"> Ver tareas</button>
+					<div id="anadir" class="col s12">
+						
+						<div class="row">
+							<h4 style="text-align:center">
+								Añade tus tareas
+							</h4>
+						    <form class="col s12" action="/anadir">
+						    	<div class="row">
+							        <div class="input-field col s6">
+							        	<i class="material-icons prefix icon-blue">note_add</i>
+							          	<input placeholder="" id="nombre" name="nombre" type="text" class="nombre validate">
+							          	<label for="nombre">Tarea</label>
+							        </div>
+							        <div class="input-field col s6">
+							        	<i class="material-icons prefix icon-blue">today</i>
+							          	<input id="fecha" type="date" name="fecha" class="datepicker">
+							        </div>
+								</div>
+						      	<div class="row">
+							        <div class="input-field col s12">
+							        	<i class="material-icons prefix icon-blue">mode_edit</i>
+							          	<textarea id="informacion" name="informacion" class="materialize-textarea" placeholder="Escribe aqui la tarea a realizar"></textarea>
+							          	<label for="informacion">Textarea</label>
+							        </div>
+						      	</div>
+						      	<div class="row center-align">
+							      	<button class="btn waves-effect waves-light center-align" type="submit" name="submit">Guardar
+										<i class="material-icons right">send</i>
+									</button>
+						      	</div>
+						    </form>
+						  </div>
+					</div>
+					
+					<div id="pendientes" class="col s12">
 						<% if (user.local.email) { %>
-						<h3 style="text-align:center">
-							Tus tareas son:
-						</h3>
+						<h4 style="text-align:center">
+							Tareas pendientes
+						</h4>
 						<% } %>
 						
 						<div class="tareas-pendientes">
-				        </div>
-					</div>
-					<div class="tab-pane fade" id="terminadas">
-						<h2> y tu?</h2>
-						<div class="tareas-terminadas">
 							
 						</div>
-						
 					</div>
-				</div>	
+					
+					<div id="terminadas" class="col s12">
+						<% if (user.local.email) { %>
+						<h4 style="text-align:center">
+							Tareas terminadas
+						</h4>
+						<% } %>
+						<div class="tareas-terminadas">
+							
+						</div>	
+					</div>
+				</div>
 			</div>
-		</div>
 	
+		</div>
+		
 		<div class="row" style="text-align:center; margin-top:20%; margin-bottom:20px;">
-			<button><a href="/logout" class="btn btn-default">Cerrar Sesion</a></button>
+			<a href="/logout" class="waves-effect waves-light btn">Cerrar Sesion</a>
 		</div>
 
 		    		 
-	</div>
+
 </body>
 </html>

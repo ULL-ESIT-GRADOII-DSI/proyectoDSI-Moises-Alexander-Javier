@@ -13,11 +13,11 @@ const Datos = require('../app/models/datosuser');
 	});
 	
 	app.get('/prueba', function(req, res) {
-		res.render('signup_viejo.ejs', { message: req.flash('loginMessage') });
+		res.render('login.ejs');
 	});
 
 	app.get('/indice', function(req, res) {
-		res.render('indice.ejs');
+		res.render('index.ejs');
 	});
 
 
@@ -158,6 +158,7 @@ const Datos = require('../app/models/datosuser');
 		 })
 	});
 	
+	
 	app.get('/pendi', function(req, res) {
 		var user = req.user;
 		console.log("Console 2: " + user.local.email);
@@ -170,6 +171,39 @@ const Datos = require('../app/models/datosuser');
 
 	        res.json(datos);
     	});
+		
+	});
+	
+	
+	app.get('/termi', function(req, res) {
+		var user = req.user;
+		
+		Datos.find({creador: req.user._id, estado: 'terminada'},function(err, datos) {
+	        if(err) {
+	            res.send(err);
+	        }
+
+	        res.json(datos);
+    	});
+		
+	});
+	
+	app.get('/update', function(req, res) {
+		var user = req.user;
+
+		Datos.update({creador: req.user._id, estado: 'pendiente'}, {$set: {estado: 'terminada'/*req.query.element*/}},function(err, datos) {
+		    if(err) throw err;
+		    res.redirect('/profile');
+		});
+		
+	});
+	
+	app.get('/eliminar',function(req, res){
+		Datos.findOneAndRemove({})
+	    .exec(function(err, curso, count)
+		{
+		    res.send({res:"Success"});
+		});
 		
 	});
 
