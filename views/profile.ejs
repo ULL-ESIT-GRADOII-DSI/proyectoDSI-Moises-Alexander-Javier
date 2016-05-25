@@ -68,10 +68,10 @@
 						<% if (user.local.email) { %>
 							<div class="cols 12">
 							<p>
-								<strong>Usuario </strong>: <%= user.local.username %><br>
-								<strong>Nombre </strong>: <%= user.local.name %><br>
-								<strong>Edad </strong>: <%= user.local.edad %><br>
-								<strong>Email </strong>: <%= user.local.email %><br>
+								<strong>Usuario: </strong> <%= user.local.username %><br>
+								<strong>Nombre: </strong> <%= user.local.name %><br>
+								<strong>Edad: </strong> <%= user.local.edad %><br>
+								<strong>Email: </strong> <%= user.local.email %><br>
 							</p>
 							</div>
 						<% } %>
@@ -100,9 +100,7 @@
 				<div id="anadir" class="col s12">
 					<div class="row">
 						<div id="titleanadir" class="col s12">
-							<h4>
-								Añade tus tareas
-							</h4>
+							<h4> Añade tus tareas </h4>
 						</div>
 					    <form class="col s12" action="/anadir">
 					    	<div class="row">
@@ -124,7 +122,7 @@
 						        </div>
 					      	</div>
 					      	<div class="row center-align">
-						      	<button class="btn waves-effect waves-light center-align" type="submit" name="submit">Guardar
+						      	<button class="btn waves-effect waves-light center-align" type="submit" name="submit">Añadir
 									<i class="material-icons right">send</i>
 								</button>
 					      	</div>
@@ -134,9 +132,9 @@
 				
 				<div id="pendientes" class="col s12">
 					<h4 style="text-align:center">
-						Tareas pendientes
+						Edita tus tareas
 					</h4>
-					<form class="tareas-pendientes col s12" action="/update">
+					<form class="col s12" action="/update">
 						<div class="row">
 							<div class="input-field col s6">
 								<i class="material-icons prefix icon-blue">note_add</i>
@@ -144,7 +142,7 @@
 								<label for="nametarea">Tarea</label>	
 							</div>
 							<div class="input-field col s6">
-								<button class="btn waves-effect waves-light center-align" type="submit" id="button" name="button">Añadir a pendientes
+								<button class="btn waves-effect waves-light center-align" type="submit" id="button" name="button">Terminar
 									<i class="material-icons right">send</i>
 								</button>
 							</div>
@@ -152,13 +150,18 @@
 						
 						<!-- Aqui se situaria el contenido dinamico -->
 					</form>
+					<div class="tareas-pendientes row">
+						<h4 style="text-align:center">
+							Tareas pendientes
+						</h4>
+					</div>
 				</div>
 				
 				<div id="terminadas" class="col s12">
 					<h4 style="text-align:center">
-						Tareas terminadas
+						Elimina tus tareas
 					</h4>
-					<form class="tareas-terminadas col s12" action="/eliminar">
+					<form class="col s12" action="/eliminar">
 						<div class="row">
 							<div class="input-field col s6">
 								<i class="material-icons prefix icon-blue">note_add</i>
@@ -174,6 +177,11 @@
 						
 						<!-- Aqui se situaria el contenido dinamico -->
 					</form>	
+					<div class="tareas-terminadas row">
+						<h4 style="text-align:center">
+							Tareas terminadas
+						</h4>
+					</div>
 				</div>
 				
 			</div>
