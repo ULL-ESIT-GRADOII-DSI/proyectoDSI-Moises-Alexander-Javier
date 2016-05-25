@@ -71,10 +71,19 @@ nav .brand-logo.center {
 }
 
 @media only screen and (max-width: 992px) {
+  
   nav .brand-logo {
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    display: none;
+    left: 0%;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  nav .brand-logo.center{
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+
+    display: block;
   }
   nav .brand-logo.left, nav .brand-logo.right {
     padding: 0;
@@ -88,7 +97,25 @@ nav .brand-logo.center {
     right: 0.5rem;
     left: auto;
   }
+  
+    img.responsive-img{
+    max-width: 100%;
+    width: 25%;
+    height: 100%;
+  }
 }
+
+/*para tamaños menores a 480*/
+@media only screen and (max-width: 480px) {
+  img.responsive-img{
+    width: 30%;
+    height: 90%;
+  }
+  
+}
+
+
+
 
 nav .brand-logo.right {
   right: 0.5rem;

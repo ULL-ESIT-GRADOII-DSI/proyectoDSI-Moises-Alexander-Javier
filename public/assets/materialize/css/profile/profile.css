@@ -1,0 +1,235 @@
+
+/*imports fonts*/
+@import url(https://fonts.googleapis.com/css?family=Merriweather:900italic,400,700,700italic,900);
+
+
+body {
+
+}
+
+#contenido{
+  margin-top: 50px;
+}
+
+/* ================================================================================
+   ============ Estilos div DATOS PERSONALES ======================================
+   ================================================================================*/
+#datos-personales{
+  background-color: grey;
+  min-height: 200px !important;
+}
+
+.headerdatos{
+  text-align: center;
+  margin-top: 10px!important;
+  background-color: white;
+  
+}
+
+.headerdatos h4{
+  color: #ee6e73;
+}
+
+#datos-personales strong{
+  padding: 2;
+  margin-left: 2%;
+}
+
+#datos-personales h4{ margin-top:0px;}
+
+
+
+/* ================================================================================
+   ============ Estilos para el MENU ==============================================
+   ================================================================================*/
+nav .brand-logo {
+  position: absolute;
+  color: #fff;
+  display: inline-block;
+  font-size: 2.1rem;
+  padding: 0;
+  white-space: nowrap;
+  margin-left: 15px;
+}
+
+/*para tamaños menores a 992*/
+@media only screen and (max-width: 992px) {
+  nav .brand-logo {
+    display: none;
+    left: 0%;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+
+  nav .brand-logo.center{
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+
+    display: block;
+  }
+  
+  img.responsive-img{
+    max-width: 100%;
+    width: 25%;
+    height: 100%;
+  }
+}
+/*para tamaños menores a 480*/
+@media only screen and (max-width: 480px) {
+  img.responsive-img{
+    width: 30%;
+    height: 90%;
+  }
+  
+}
+
+#linkmovil{
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+}
+#link{
+  font-family: 'Merriweather', serif;
+}
+
+
+
+/* ================================================================================
+   ============ Estilos TABS ======================================================
+   ================================================================================*/
+.tabs {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 48px;
+  background-color: #fff;
+  margin: 0 auto;
+  width: 100%;
+  white-space: nowrap;
+  background-color: white;
+}
+
+.tabs .tab {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  display: block;
+  float: left;
+  text-align: center;
+  line-height: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  letter-spacing: .8px;
+  width: 15%;
+  min-width: 80px;
+}
+
+.tabs .tab a {
+  color: #ee6e73;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: color .28s ease;
+
+}
+
+#divtabs{
+  background-color: grey;
+}
+
+#headertab{
+  text-align: right;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#anadir{
+  margin-top: 40px;
+  min-height: 400px !important;
+}
+
+#titleanadir{
+  text-align: center;
+  
+}
+
+#pendientes{
+  margin-top: 40px;
+  min-height: 400px !important;
+}
+
+#terminadas{
+  margin-top: 40px;
+  min-height: 400px !important;
+}
+
+
+
+
+/* ================================================================================
+   ============ Estilos CONTENIDO DE TABS =========================================
+   ================================================================================*/
+i.icon-blue { color: black!important; } 
+
+
+.collapsible {
+  border-top: 0px solid #ddd;
+  border-right: 0px solid #ddd;
+  border-left: 0px solid #ddd;
+  margin: 0rem 0 0rem 0;
+}
+
+.collapsible li{
+  background-color: transparent!important;
+}
+
+.collapsible-header {
+  display: block;
+  cursor: pointer;
+  min-height: 3rem;
+  line-height: 3rem;
+  padding: 0 2rem;
+  background-color: #b71c1c/*#fff*/;
+  border-bottom: 1px solid #ddd;
+}
+
+.collapsible-header i {
+  width: 2rem;
+  font-size: 1.6rem;
+  line-height: 3rem;
+  display: block;
+  float: left;
+  text-align: center;
+  margin-right: 1rem;
+}
+
+.collapsible-body {
+  display: none;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.collapsible-body p {
+  margin: 0;
+  padding: 8px;
+}
+
+
+.btn-floating {
+  margin-top: 5px;
+}
+
