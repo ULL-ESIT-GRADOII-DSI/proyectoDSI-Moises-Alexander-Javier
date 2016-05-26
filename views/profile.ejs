@@ -39,7 +39,7 @@
 			</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="/logout"><i class="material-icons right">system_update_alt</i>Cerrar sesion</a></li>
+				<li><a href="/logout"><i class="material-icons right">system_update_alt</i>Cerrar sesión</a></li>
 			</ul>
 			<!-- Lo que se muestra en version movil -->
 			<ul class="side-nav #b3e5fc light-blue lighten-4" id="mobile-demo">
@@ -59,7 +59,7 @@
 	
 	<div id="contenido" class="row">
 		<div class="col s12 col m4">
-			<div id="datos-personales" class="row">
+			<div id="datos-personales" class="row #b3e5fc light-blue lighten-4">
 				<div class="col s12">
 					<div class="headerdatos row">
 						<h4> Datos Personales </h4>
@@ -89,7 +89,7 @@
 		</div>
 		
 		<div class="col s12 m8">
-			<div id="divtabs" class="row">
+			<div id="divtabs" class="row #b3e5fc light-blue lighten-4">
 				<div id="headertab" class="col s12 m8">
 				  <ul class="tabs">
 				    <li class="tab col s4"><a href="#anadir" class="active">Añadir</a></li>
@@ -99,10 +99,10 @@
 				</div>
 				<div id="anadir" class="col s12">
 					<div class="row">
-						<div id="titleanadir" class="col s12">
+						<!--<div id="titleanadir" class="col s12">
 							<h4> Añade tus tareas </h4>
-						</div>
-					    <form class="col s12" action="/anadir">
+						</div>-->
+					    <!--<form class="col s12" action="/anadir">
 					    	<div class="row">
 						        <div class="input-field col s6">
 						        	<i class="material-icons prefix icon-blue">note_add</i>
@@ -126,7 +126,48 @@
 									<i class="material-icons right">send</i>
 								</button>
 					      	</div>
-					    </form>
+					    </form>-->
+					    <form class="col s12" action="/anadir">
+					    	
+					    	<div class="row">
+					    		<div class="col s6">
+					    				<div class="row">
+									        <div class="input-field col s12">
+									        	<i class="material-icons prefix icon-blue">note_add</i>
+									          	<input placeholder="" id="nombre" name="nombre" type="text" class="nombre validate">
+									          	<label class="black-text" for="nombre">Nombre de la tarea</label>
+									        </div>
+									    </div>
+									    
+									    <div class="row">
+									        <div class="input-field col s12">
+									        	<i class="material-icons prefix icon-blue">today</i>
+									          	<input id="fecha" type="date" name="fecha" class="datepicker">
+									          	<label class="black-text" for="nombre">Fecha</label>
+									        </div>
+										</div>
+					    		</div>
+					    		
+					    		<div class="input-field col s6">
+						        	<i class="material-icons prefix icon-blue">mode_edit</i>
+						          	<textarea id="informacion" name="informacion" class="materialize-textarea" class="black-text " placeholder=""></textarea>
+						          	<label class="black-text" for="informacion">Descripción de la tera</label>
+						        </div>
+					    	</div>
+					    
+							
+					      	<div class="row">
+						        
+					      	</div>
+					      	<div class="row center-align">
+						      	<button class="btn waves-effect waves-light center-align #f44336 red" type="submit" name="submit">Añadir
+									<i class="material-icons right">send</i>
+								</button>
+					      	</div>
+					    </form>-
+					    
+					    
+					    
 					  </div>
 				</div>
 				
