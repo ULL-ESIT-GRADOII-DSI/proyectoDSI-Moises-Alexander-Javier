@@ -44,7 +44,7 @@
                  
     
                   <div class="row">
-                        <form class="col s12" action="/signup" method="post">
+                        <form class="col s12" action="/signup" method="post" onsubmit="return validacion_signup()">
                             <div class="row">
                                 <div class="input-field col s12 m12">
                                     <input class="form-control" id="nombre1" type="text" class="validate" name="nombre1">
@@ -59,19 +59,19 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12 m12">
-                                    <input class="form-control" id="edad" type="number" min="18" class="validate" name="edad">
+                                    <input class="form-control" id="edad1" type="number" min="18" class="validate" name="edad">
                                     <label for="edad">Edad</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12 m12">
-                                    <input class="form-control" id="email" type="email" class="validate" name="email">
+                                    <input class="form-control" id="email1" type="email" class="validate" name="email">
                                     <label for="email">Email</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12 m12">
-                                    <input id="password" class="form-control" type="password" class="validate" name="password">
+                                    <input id="password1" class="form-control" type="password" class="validate" name="password">
                                     <label for="password">Contraseña</label>
                                 </div>
                             </div>
