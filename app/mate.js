@@ -62,3 +62,27 @@ function validacion_signup() {
   
  
 };
+
+
+
+function validacion_login(){
+    
+    var email= document.getElementById("email2").value; 
+    var password= document.getElementById("password2").value;
+    
+    
+    
+    if (!(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.([a-z]{2,4})$/).test(email)) {
+    
+    alert('No ha introducido ningún email correcto');
+    return false;
+
+  }
+    
+     else if (password.length == 0) {
+    // Si no se cumple la condicion...
+    alert('No ha introducido ninguna contraseña');
+    return false;
+
+  }
+};
