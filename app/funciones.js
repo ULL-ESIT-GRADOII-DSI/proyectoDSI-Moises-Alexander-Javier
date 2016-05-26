@@ -41,9 +41,9 @@
                             
                             div = div +
                                     '<li class="col s12" onclick="f();">'+
-                                        '<div class="collapsible-header"><i class="material-icons">library_books</i>'+data[i].tarea+'</div>'+
-                                        '<div class="collapsible-body"><p> Fecha de entrega: ' + data[i].fecha  +  '</p></div>'+
-                                        '<div class="collapsible-body"><p> Descripcion: ' + data[i].informacion  + '</p></div>'+
+                                        '<div class="collapsible-header #ffffff white"><i class="material-icons">library_books</i>'+data[i].tarea+'</div>'+
+                                        '<div class="collapsible-body #eceff1 blue-grey lighten-4"><p> Fecha de entrega: ' + data[i].fecha  +  '</p></div>'+
+                                        '<div class="collapsible-body #eceff1 blue-grey lighten-4"><p> Descripcion: ' + data[i].informacion  + '</p></div>'+
                                     '</li>';
                         }
                     } 
@@ -88,9 +88,9 @@
                             
                             div = div +
                                     '<li class="col s12" onclick="f();">'+
-                                        '<div class="collapsible-header"><i class="material-icons">library_books</i>'+data[i].tarea+'</div>'+
-                                        '<div class="collapsible-body"><p> Fecha de entrega: ' + data[i].fecha  +  '</p></div>'+
-                                        '<div class="collapsible-body"><p> Descripcion: ' + data[i].informacion  + '</p></div>'+
+                                        '<div class="collapsible-header #ffffff white"><i class="material-icons">library_books</i>'+data[i].tarea+'</div>'+
+                                        '<div class="collapsible-body #eceff1 blue-grey lighten-4"><p> Fecha de entrega: ' + data[i].fecha  +  '</p></div>'+
+                                        '<div class="collapsible-body #eceff1 blue-grey lighten-4"><p> Descripcion: ' + data[i].informacion  + '</p></div>'+
                                     '</li>';
                         }
                     } 
