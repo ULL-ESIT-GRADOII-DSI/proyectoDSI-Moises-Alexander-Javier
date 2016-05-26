@@ -200,7 +200,7 @@ const Datos = require('../app/models/datosuser');
 	});
 	
 	app.get('/eliminar',function(req, res){
-		Datos.findOneAndRemove({})
+		Datos.findOneAndRemove({tarea: req.query.nametarea1})
 	    .exec(function(err, curso, count)
 		{
 		    res.redirect('/profile');
