@@ -15,6 +15,7 @@ y seguir los siguientes pasos:
 * Instalar las dependencias con `npm install`.
 * Crear un ID de Proyecto en la [Google Developers Console](https://console.developers.google.com) y habilitar la API de Google+, pare ello podemos seguir el siguiente [Tutorial](https://developers.google.com/identity/sign-in/web/devconsole-project).
 * Las rutas que debemos utilizar si usamos C9.io son como las siguientes: `http://prueba-alu0100505009.c9users.io:8080` y `http://prueba-alu0100505009.c9users.io:8080/auth/google/callback`, donde hay que tener en cuenta que la primera parte de dichas direcciones es nuestro propio proyecto de C9.io.
+* En caso de ejecutarlo en local deberemos de utilizar estas: `http://localhost:8080` y `http://localhost:8080/auth/google/callback`.
 * Modificar el fichero `auth.js`, incluyendo nuestro propio clientID, clientSecret y callbackURL.
 * Ejecutar mongo en la consola con `./mongod` y a continuación arrancar el `server.js`
 
