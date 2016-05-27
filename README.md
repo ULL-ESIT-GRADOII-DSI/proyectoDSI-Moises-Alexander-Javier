@@ -2,11 +2,17 @@
 --------
 ### Descripción del proyecto
 Este repositorio contiene el proyecto final de la asignatura de Desarrollo de sistemas Informáticos de la Universidad de La Laguna.
-NotaPro es el nombre de una aplicación web que permite administrar de forma fácil y rápida, nuestras tareas diarias, pudiendo crearlas y darlas por finalizado.
+NotaPro es el nombre de una aplicación web que permite administrar de forma fácil y rápida, nuestras tareas diarias, pudiendo crear nuevas tareas a realizar así como darlas por finalizadas.
 
 ###Uso
-Para usar la plataforma, deberemos de registrarnos con un correo electrónico o bien con nuestra cuenta de Google. Una vez dentro, podremos administrar nuestras tareas como quisiéramos.
+Para usar la plataforma, deberemos de registrarnos con un correo electrónico o bien con nuestra cuenta de Google+. Una vez dentro, podremos gestionar nuestras tareas a traves de interfaz muy simple.
 
+###Ejecución en modo local
+Si deseamos ejecutar la aplicación en modo local deberemos descargarnos el código fuente desde este repositorio de GitHub. Lo más recomendable, pero no necesario, es ejecutarla sobre un entorno de C9.io
+y seguir los siguientes pasos:
+* Instalar las dependencias con `npm install`.
+* Crear un ID de Proyecto en la [Google Developers Console](https://console.developers.google.com) y habilitar la API de Google+, pare ello podemos seguir el siguiente [Tutorial](https://scotch.io/tutorials/easy-node-authentication-google).
+* Modificar el fichero `auth.js`, incluyendo nuestro propio clientID, clientSecret y callbackURL.
 
 ###Tecnologías utilizadas
 * NodeJS
@@ -16,6 +22,8 @@ Para usar la plataforma, deberemos de registrarnos con un correo electrónico o 
 * Sass
 * Api de Google para registro de usuario
 * Passport
+* Nodemon
+
 
 
 
