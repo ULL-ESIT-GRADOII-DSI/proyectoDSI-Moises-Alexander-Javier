@@ -1,5 +1,4 @@
 #**NotaPro**
---------
     
 ![NotaPro](https://github.com/alu0100505009/proyectoDSI/blob/master/ReadmeImages/index.PNG)
 
