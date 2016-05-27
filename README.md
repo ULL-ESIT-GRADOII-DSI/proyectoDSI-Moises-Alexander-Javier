@@ -13,7 +13,8 @@ Para usar la plataforma, deberemos de registrarnos con un correo electrónico o 
 Si deseamos ejecutar la aplicación en modo local deberemos descargarnos el código fuente desde este repositorio de GitHub. Lo más recomendable, pero no necesario, es ejecutarla sobre un entorno de C9.io
 y seguir los siguientes pasos:
 * Instalar las dependencias con `npm install`.
-* Crear un ID de Proyecto en la [Google Developers Console](https://console.developers.google.com) y habilitar la API de Google+, pare ello podemos seguir el siguiente [Tutorial](https://scotch.io/tutorials/easy-node-authentication-google).
+* Crear un ID de Proyecto en la [Google Developers Console](https://console.developers.google.com) y habilitar la API de Google+, pare ello podemos seguir el siguiente [Tutorial](https://developers.google.com/identity/sign-in/web/devconsole-project).
+* Las rutas que debemos utilizar si usamos C9.io son como las siguientes: `http://prueba-alu0100505009.c9users.io:8080` y `http://prueba-alu0100505009.c9users.io:8080/auth/google/callback`, donde hay que tener en cuenta que la primera parte de dichas direcciones es nuestro propio proyecto de C9.io.
 * Modificar el fichero `auth.js`, incluyendo nuestro propio clientID, clientSecret y callbackURL.
 * Ejecutar mongo en la consola con `./mongod` y a continuación arrancar el `server.js`
 
@@ -26,10 +27,6 @@ y seguir los siguientes pasos:
 * Api de Google para registro de usuario
 * Passport
 * Nodemon
-
-
-
-
 
 ###Enlaces de interés
 * [Campus de la asignatura](https://campusvirtual.ull.es/1516/course/view.php?id=144)
