@@ -13,6 +13,7 @@ y seguir los siguientes pasos:
 * Instalar las dependencias con `npm install`.
 * Crear un ID de Proyecto en la [Google Developers Console](https://console.developers.google.com) y habilitar la API de Google+, pare ello podemos seguir el siguiente [Tutorial](https://scotch.io/tutorials/easy-node-authentication-google).
 * Modificar el fichero `auth.js`, incluyendo nuestro propio clientID, clientSecret y callbackURL.
+* Ejecutar mongo en la consola con `./mongod` y a continuación arrancar el `server.js`
 
 ###Tecnologías utilizadas
 * NodeJS
