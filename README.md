@@ -1,5 +1,7 @@
 #**NotaPro**
 --------
+    ![NotaPro](https://github.com/alu0100505009/proyectoDSI/blob/master/ReadmeImages/index.PNG)
+
 ### Descripción del proyecto
 Este repositorio contiene el proyecto final de la asignatura de Desarrollo de sistemas Informáticos de la Universidad de La Laguna.
 NotaPro es el nombre de una aplicación web que permite administrar de forma fácil y rápida, nuestras tareas diarias, pudiendo crear nuevas tareas a realizar así como darlas por finalizadas.
